@@ -3,7 +3,7 @@ import { signIn, useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import Link from 'next/link'
-import { useForm, SubmitHandler } from 'react-hook-form';
+import {SubmitHandler, useForm} from 'react-hook-form'
 
 type Inputs = {
   email: string
