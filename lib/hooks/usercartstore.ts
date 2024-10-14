@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import { round2 } from '../utils'
-import { OrderItem } from '../models/ordermodel'
 import { persist } from 'zustand/middleware'
+import { OrderItem } from '../model/ordermodel'
+import { round2 } from '../utils'
 
 
 type Cart = {
