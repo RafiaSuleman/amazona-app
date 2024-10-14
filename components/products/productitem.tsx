@@ -1,7 +1,8 @@
-import { Product } from '../../lib/models/productmodel' 
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { Product } from '../../lib/model/productmodel'
 
 export default function ProductItem({ product }: { product: Product }) {
   return (
