@@ -33,7 +33,6 @@ const Form = () => {
     },
   })
   useEffect(() => {
-    // useralready exist push to callback url... jo url user na call kya ha 
     if (session && session.user) {
       router.push(callbackUrl)
     }
@@ -63,15 +62,14 @@ const Form = () => {
         throw new Error(data.message)
       }
     } catch (err) {
-        // Narrow down the error type to avoid `any`
-        const errorMessage =
-          err instanceof Error && err.message.includes('E11000')
-            ? 'Email is duplicate'
-            : err instanceof Error
-            ? err.message
-            : 'An unexpected error occurred'
-  
-        toast.error(errorMessage)
+      const errorMessage =
+        err instanceof Error && err.message.includes('E11000')
+          ? 'Email is duplicate'
+          : err instanceof Error
+          ? err.message
+          : 'An unexpected error occurred'
+
+      toast.error(errorMessage)
     }
   }
   return (

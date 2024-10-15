@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { OrderItem } from '../model/ordermodel'
+import { OrderItem, ShippingAddress } from '../model/ordermodel'
 import { round2 } from '../utils'
 
 
@@ -11,8 +11,8 @@ type Cart = {
     shippingPrice: number
     totalPrice: number
   
-   /*  paymentMethod: string
-    shippingAddress: ShippingAddress */
+    paymentMethod: string
+    shippingAddress: ShippingAddress
   }
   const initialState: Cart = {
     items: [],
@@ -20,14 +20,14 @@ type Cart = {
     taxPrice: 0,
     shippingPrice: 0,
     totalPrice: 0,
-  /*   paymentMethod: 'PayPal',
+    paymentMethod: 'PayPal',
     shippingAddress: {
       fullName: '',
       address: '',
       city: '',
       postalCode: '',
       country: '',
-    }, */
+    }, 
   }
 
   export const cartStore = create<Cart>()(
@@ -43,6 +43,8 @@ type Cart = {
         taxPrice,
         shippingPrice,
         totalPrice,
+        paymentMethod,
+        shippingAddress,
        
       } = cartStore()
       return {
@@ -51,7 +53,8 @@ type Cart = {
         taxPrice,
         shippingPrice,
         totalPrice,
-      
+       paymentMethod,
+       shippingAddress,
         // inc item in cart
         increase: (item: OrderItem) => {
             // find item in the cart
@@ -90,7 +93,7 @@ type Cart = {
             totalPrice,
           })
         },
-       /*  saveShippingAddrress: (shippingAddress: ShippingAddress) => {
+        saveShippingAddrress: (shippingAddress: ShippingAddress) => {
           cartStore.setState({
             shippingAddress,
           })
@@ -105,7 +108,7 @@ type Cart = {
             items: [],
           })
         },
-        init: () => cartStore.setState(initialState), */
+        init: () => cartStore.setState(initialState), 
       }
 }
 

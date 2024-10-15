@@ -103,10 +103,10 @@ const Form = () => {
           </div>
         </form>
         <div>
-          Need an account?{' '}
-          <Link className="link" href={`/register?callbackUrl=${callbackUrl}`}>
-            Register
-          </Link>
+        Need an account?{' '}
+        <Link href={`/register?callbackUrl=${callbackUrl}`}>
+    <span className="link">Register</span>
+  </Link>
         </div>
       </div>
     </div>
