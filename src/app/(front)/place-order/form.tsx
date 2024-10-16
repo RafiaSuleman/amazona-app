@@ -21,11 +21,10 @@ const Form = () => {
     totalPrice,
     clear,
   } = useCartService()
-// useSWRMutation  hook to mutate data in the backend calling trigger function first parameter is a api address -> ( `/api/orders/mine`) when new order is palce tis value is revalidated and add a new order the 2nd function is async function that accept url 
 
   const { trigger: placeOrder, isMutating: isPlacing } = useSWRMutation(
     `/api/orders/mine`,
-    async (url) => {
+    async () => {
       const res = await fetch('/api/orders', {
         method: 'POST',
         headers: {
@@ -58,7 +57,7 @@ const Form = () => {
     if (items.length === 0) {
       return router.push('/')
     }
-   
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paymentMethod, router])
 
   const [mounted, setMounted] = useState(false)
@@ -149,7 +148,7 @@ const Form = () => {
           </div>
         </div>
 
-        <div className='mt-4'>
+        <div>
           <div className="card bg-base-300">
             <div className="card-body">
               <h2 className="card-title">Order Summary</h2>

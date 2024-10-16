@@ -6,7 +6,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import useCartService from '../../lib/hooks/usercartstore'
 
 const Menu = () => {
-  const { items } = useCartService()
+  const { items ,init} = useCartService()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -15,6 +15,7 @@ const Menu = () => {
 
   const signoutHandler = () => {
     signOut({ callbackUrl: '/signin' }) // Corrected 'callbackurl' to 'callbackUrl'
+   init()
   }
   const { data: session } = useSession()
 
@@ -52,12 +53,12 @@ const Menu = () => {
                       </li>
                     )} */}
 
-                  {/*   <li onClick={handleClick}>
+                     <li onClick={handleClick}>
                       <Link href="/order-history">Order history </Link>
                     </li>
-                    <li onClick={handleClick}>
+                     <li onClick={handleClick}>
                       <Link href="/profile">Profile</Link>
-                    </li> */}
+                    </li> 
                     <li onClick={handleClick}>
                       <button type="button" onClick={signoutHandler}>
                         Sign out

@@ -8,59 +8,16 @@ import { OrderItem } from '../../../../../lib/model/ordermodel'
 
 export default function OrderDetails({
   orderId,
-  paypalClientId,
 }: {
   orderId: string
   paypalClientId: string
 }) {
-  /* const { trigger: deliverOrder, isMutating: isDelivering } = useSWRMutation(
-    `/api/orders/${orderId}`,
-    async (url) => {
-      const res = await fetch(`/api/admin/orders/${orderId}/deliver`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      const data = await res.json()
-      res.ok
-        ? toast.success('Order delivered successfully')
-        : toast.error(data.message)
-    }
-  )
- */
   const { data: session } = useSession()
   console.log(session)
   const {data,error} = useSWR (`/api/orders/${orderId}`)
- /*  function createPayPalOrder() {
-    return fetch(`/api/orders/${orderId}/create-paypal-order`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((order) => order.id)
-  }
-
-  function onApprovePayPalOrder(data: any) {
-    return fetch(`/api/orders/${orderId}/capture-paypal-order`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((orderData) => {
-        toast.success('Order paid successfully')
-      })
-  }
-
-  const { data, error } = useSWR(`/api/orders/${orderId}`) */
-
+  console.log(data)
   if (error) return error.message
-  if (!data) return 'Loading...'
+  if (!data) return 'hello'
 
   const {
     paymentMethod,
