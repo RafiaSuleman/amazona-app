@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { auth } from "../../../../../lib/auth"
 import dbConnect from "../../../../../lib/dbconnect"
 import OrderModel from "../../../../../lib/model/ordermodel"
