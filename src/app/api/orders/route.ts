@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Import the default types from your auth library (e.g., NextAuth or custom auth)
 import { auth } from "../../../../lib/auth";
 import dbConnect from "../../../../lib/dbconnect";
