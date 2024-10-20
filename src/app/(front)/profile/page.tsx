@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Form from './form'
 
 
 export const metadata: Metadata = {
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 }
 
 export default async function Profile() {
-  return 
+  return <Form/>
 }

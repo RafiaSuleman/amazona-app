@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import bcrypt from 'bcryptjs'
 import { auth } from '../../../../../lib/auth'
@@ -19,6 +20,7 @@ export const PUT = auth(async (req) => {
         { message: 'User not found' },
         {
           status: 404,
+          
         }
       )
     }
