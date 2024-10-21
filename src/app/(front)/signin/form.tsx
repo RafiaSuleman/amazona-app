@@ -14,7 +14,7 @@ const Form = () => {
   const { data: session } = useSession()
 
   const params = useSearchParams()
-  const callbackUrl = params.get('callbackUrl') || '/'
+  const callbackUrl = params.get('callbackUrl') || 'https://amazona-app-bay.vercel.app/'
 
   const router = useRouter()
 
