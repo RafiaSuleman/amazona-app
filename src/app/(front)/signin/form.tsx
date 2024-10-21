@@ -16,8 +16,8 @@ const Form = () => {
   const params = useSearchParams()
  /*  const callbackUrl = params.get('callbackUrl') || '/' */
  const callbackUrl = process.env.NODE_ENV === 'production'
-    ? 'https://amazona-app-bay.vercel.app/signing'
-    : 'http://localhost:3000/signing'; // Change to your local URL if needed
+    ? 'https://amazona-app-bay.vercel.app'
+    : 'http://localhost:3000'; // Change to your local URL if needed
 
   const router = useRouter()
 
