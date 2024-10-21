@@ -18,7 +18,10 @@ const Form = () => {
 
   const params = useSearchParams()
   const router = useRouter()
-  const callbackUrl = params.get('callbackUrl') || '/'
+  const callbackUrl = process.env.NODE_ENV === 'production'
+    ? 'https://amazona-app-bay.vercel.app'
+    : 'http://localhost:3000'; // Change to your local URL if needed
+
   const {
     register,
     handleSubmit,
